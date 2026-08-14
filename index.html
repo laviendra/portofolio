@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rafli Praditta — Backend & Full-Stack Developer | Information Systems Undergraduate at Universitas Pamulang (UNPAM).">
+    <meta name="color-scheme" content="light dark">
+    <title>Rafli Praditta — Backend & Full-Stack Developer</title>
+    
+    <!-- Google Fonts: Plus Jakarta Sans & Outfit & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS (Cache-busted) -->
+    <link rel="stylesheet" href="styles.css?v=20260812_instant_131100_final">
+
+    <!-- Inline Script to prevent Theme FOUC -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+</head>
+<body>
+    <!-- Background Animated Fluid Blobs ("Bloop-Bloop" Liquid Background) -->
+    <div class="fluid-blob-container" aria-hidden="true">
+        <div class="fluid-blob blob-1"></div>
+        <div class="fluid-blob blob-2"></div>
+        <div class="fluid-blob blob-3"></div>
+        <div class="fluid-blob blob-4"></div>
+    </div>
+
+    <!-- Mouse Interactive Follower Bubble -->
+    <div id="mouse-bubble" class="mouse-bubble" aria-hidden="true"></div>
+
+    <!-- Top Scroll Progress Indicator -->
+    <div id="scroll-progress" class="scroll-progress"></div>
+
+    <!-- Liquid Glass Navigation Header -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="brand-logo">
+                <span class="logo-glass">RP</span>
+                <span class="logo-text">rafli<span class="solid-indigo-text">.dev</span></span>
+            </a>
+
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="#hero" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#education" class="nav-link">Education</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <!-- WhatsApp Quick Action with Official WhatsApp SVG Logo -->
+                <a href="https://wa.me/6281211749731" target="_blank" rel="noopener" class="btn-wa-header" aria-label="Chat on WhatsApp">
+                    <svg class="wa-svg-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.99c-.002 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    <span>WhatsApp</span>
+                </a>
+
+                <!-- Theme Switcher -->
+                <button id="theme-toggle" class="icon-btn glass-btn" aria-label="Toggle Color Theme">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+
+                <!-- Mobile Hamburger -->
+                <button id="hamburger-btn" class="hamburger-btn" aria-label="Open Navigation Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="glass-pill-badge">
+                        <span class="pulse-bubble"></span>
+                        <span>Universitas Pamulang (UNPAM) • GPA 3.70</span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        Rafli <span class="solid-indigo-text">Praditta</span>
+                    </h1>
+
+                    <div class="typewriter-container">
+                        <span class="typewriter-prefix">Role: </span>
+                        <span id="typewriter-text" class="typewriter-text"></span>
+                        <span class="typewriter-cursor">|</span>
+                    </div>
+
+                    <p class="hero-subtitle">
+                        Undergraduate student in <strong>Information Systems</strong> at <strong>Universitas Pamulang (UNPAM)</strong>. Passionate about <strong>Backend & Full-Stack Development</strong> with strong core expertise in <strong>Go (Golang)</strong>, <strong>Laravel</strong>, <strong>RESTful APIs</strong>, and <strong>MySQL Database Architecture</strong>.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-solid-indigo">
+                            <span>Explore My Projects</span>
+                        </a>
+                        <a href="https://github.com/laviendra" target="_blank" rel="noopener" class="btn btn-glass-secondary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/raflipraditta" target="_blank" rel="noopener" class="btn btn-glass-secondary">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="CV_Rafli_Praditta.pdf" target="_blank" rel="noopener" id="download-cv" class="btn btn-glass-outline" title="Open and view Rafli Praditta's CV PDF">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                            <span>Curriculum Vitae (PDF)</span>
+                        </a>
+                    </div>
+
+                    <div class="tech-pills">
+                        <span class="tech-pill-title">Core Stack:</span>
+                        <div class="pills-wrapper">
+                            <span class="glass-tag tag-blue">Go (Golang)</span>
+                            <span class="glass-tag tag-purple">Laravel</span>
+                            <span class="glass-tag tag-cyan">Gin Framework</span>
+                            <span class="glass-tag tag-amber">PHP</span>
+                            <span class="glass-tag tag-emerald">MySQL</span>
+                            <span class="glass-tag tag-indigo">REST API</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <!-- Glass Photo Card -->
+                    <div class="glass-photo-card">
+                        <div class="glass-photo-wrapper">
+                            <img src="profile.jpg" alt="Rafli Praditta Profile Photo" class="profile-photo">
+                        </div>
+
+                        <!-- Floating Glass Badges -->
+                        <div class="floating-glass-badge badge-top-right">
+                            <span class="badge-icon">🎓</span>
+                            <div>
+                                <strong>GPA 3.70</strong>
+                                <small>UNPAM (2024 - Present)</small>
+                            </div>
+                        </div>
+
+                        <div class="floating-glass-badge badge-bottom-left">
+                            <span class="badge-icon">⚡</span>
+                            <div>
+                                <strong>Backend & Full-Stack</strong>
+                                <small>Go & Laravel Specialist</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About & Bento Grid Section -->
+        <section id="about" class="section about-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag tag-solid-purple">Profile & Background</span>
+                    <h2 class="section-title">About Me & Academic Journey</h2>
+                    <p class="section-desc">Information Systems student actively building real-world web applications and engineering robust backend systems.</p>
+                </div>
+
+                <!-- Bento Grid Layout -->
+                <div class="bento-grid">
+                    <!-- Bento 1: About Bio -->
+                    <div class="bento-card bento-span-2 glass-card">
+                        <div class="bento-content">
+                            <h3>👋 Hello, I'm Rafli Praditta</h3>
+                            <p>
+                                I am an active 5th-semester undergraduate student pursuing a <strong>Bachelor of Information Systems (S1)</strong> at <strong>Universitas Pamulang (UNPAM)</strong> (2024 - Present), currently maintaining a cumulative GPA of <strong>3.70 / 4.00</strong>.
+                            </p>
+                            <p>
+                                I have a deep passion for <strong>Backend & Full-Stack Development</strong>. I thoroughly enjoy engineering real-world web applications that solve practical business problems. My primary technical interests include <strong>Go (Golang)</strong>, <strong>Laravel</strong>, <strong>REST API Architecture</strong>, <strong>Database Design</strong>, <strong>JWT Authentication</strong>, and <strong>Information Systems Engineering</strong>.
+                            </p>
+
+                            <div class="target-card glass-card-inner">
+                                <span class="target-badge">🎯 Career Objective</span>
+                                <p>To excel as a professional <strong>Backend / Full-Stack Developer</strong> capable of engineering scalable, maintainable, and highly reliable web systems by applying industry-standard software engineering and system architecture best practices.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bento 2: UNPAM College Card -->
+                    <div class="bento-card glass-card">
+                        <div class="bento-content">
+                            <div class="bento-icon">🎓</div>
+                            <span class="glass-tag tag-purple" style="margin-bottom:12px;">Higher Education</span>
+                            <h4>Universitas Pamulang (UNPAM)</h4>
+                            <p class="bento-sub">Bachelor of Information Systems (2024 - Present)</p>
+                            <ul class="bento-list">
+                                <li>📌 <strong>Semester:</strong> 5th (Active)</li>
+                                <li>⭐ <strong>Current GPA:</strong> 3.70 / 4.00</li>
+                                <li>💻 <strong>Focus:</strong> Information Systems & Backend</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Bento 3: SMK 1 Tangerang Card -->
+                    <div class="bento-card glass-card">
+                        <div class="bento-content">
+                            <div class="bento-icon">🏫</div>
+                            <span class="glass-tag tag-cyan" style="margin-bottom:12px;">Vocational Education</span>
+                            <h4>SMK Negeri 1 Kota Tangerang</h4>
+                            <p class="bento-sub">Multimedia Major (2021 - 2024)</p>
+                            <p class="bento-desc">
+                                Engineered the <em>Company School Profile Website</em> as a milestone first web development project, establishing core foundations in web architecture, UI design, and front-end fundamentals.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TECH STACK & SKILLS MATRIX SECTION -->
+        <section id="skills" class="section skills-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag tag-solid-indigo">Skills Matrix</span>
+                    <h2 class="section-title">Programming Languages, Frameworks & Tools</h2>
+                    <p class="section-desc">Technical competencies across backend architecture, database systems, and modern engineering tools.</p>
+                </div>
+
+                <!-- Modern Tech Matrix & Category Navigation Dock -->
+                <div class="tech-matrix-dock glass-card">
+                    <div class="matrix-categories" id="skill-category-tabs">
+                        <button class="tab-btn active" data-category="all">All Tech Stack</button>
+                        <button class="tab-btn" data-category="backend">Backend & Languages</button>
+                        <button class="tab-btn" data-category="frameworks">Frameworks & Web</button>
+                        <button class="tab-btn" data-category="database">Databases & Tools</button>
+                    </div>
+
+                    <div class="glass-search-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        <input type="text" id="skill-search-input" placeholder="Search skills (e.g., Go, Laravel, MySQL, REST API)...">
+                    </div>
+                </div>
+
+                <!-- Interactive Skills Glass Cards Grid -->
+                <div class="skills-grid" id="skills-container">
+                    <!-- Dynamic rendering via script.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SHOWCASE SECTION -->
+        <section id="projects" class="section projects-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag tag-solid-emerald">Project Portfolio</span>
+                    <h2 class="section-title">Featured Web Engineering Works</h2>
+                    <p class="section-desc">Real-world web applications built with Go (Golang), Laravel, PHP, MySQL, and RESTful API architecture.</p>
+                </div>
+
+                <!-- Spotlight Featured Project Stage -->
+                <div class="project-spotlight-stage glass-card" id="project-spotlight">
+                    <div class="spotlight-badge">FEATURED BACKEND HIGHLIGHT</div>
+                    <div class="spotlight-grid">
+                        <div class="spotlight-info">
+                            <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;">
+                                <span class="glass-tag tag-amber">🚧 In Development</span>
+                                <span class="glass-tag tag-blue">Go (Golang) • Gin • MySQL</span>
+                            </div>
+                            <h3 class="spotlight-title">Student Attendance System</h3>
+                            <p class="spotlight-desc">A backend-based student attendance management system developed to improve my understanding of REST API development and backend architecture.</p>
+                            
+                            <div class="spotlight-metrics">
+                                <div class="metric-chip">
+                                    <span class="metric-val">In Development</span>
+                                    <span class="metric-lbl">Status</span>
+                                </div>
+                                <div class="metric-chip">
+                                    <span class="metric-val">Go (Golang)</span>
+                                    <span class="metric-lbl">Backend Engine</span>
+                                </div>
+                                <div class="metric-chip">
+                                    <span class="metric-val">Gin Framework</span>
+                                    <span class="metric-lbl">Framework</span>
+                                </div>
+                            </div>
+
+                            <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:20px;">
+                                <button class="btn btn-solid-indigo detail-btn" data-id="student-attendance-system">
+                                    <span>View Architecture Details ✦</span>
+                                </button>
+                                <a href="https://github.com/laviendra/absensi_mahasiswa" target="_blank" rel="noopener" class="btn btn-glass-outline">
+                                    <span>GitHub Repository</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="spotlight-image-wrap">
+                            <img src="assets/projects/attendance-showcase.jpg" alt="Student Attendance System" class="spotlight-img">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Category Filters -->
+                <div class="projects-filter-bar" id="projects-filter">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="personal">Personal Projects</button>
+                    <button class="filter-btn" data-filter="academic">Academic Projects</button>
+                    <button class="filter-btn" data-filter="school">School Projects</button>
+                </div>
+
+                <!-- Interactive Projects Cards Grid -->
+                <div class="projects-grid" id="projects-container">
+                    <!-- Dynamic rendering via script.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION & ACADEMIC JOURNEY DECK SECTION -->
+        <section id="education" class="section education-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag tag-solid-purple">Academic Journey</span>
+                    <h2 class="section-title">Educational Background & Milestones</h2>
+                    <p class="section-desc">Academic journey and technical learning milestones of Rafli Praditta.</p>
+                </div>
+
+                <!-- Modern Education Journey Deck Grid -->
+                <div class="education-deck-grid" id="education-container">
+                    <!-- Rendered dynamically via script.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <div class="glass-card contact-window">
+                    <div class="contact-card-wrapper">
+                        <div class="contact-info">
+                            <span class="section-tag tag-solid-indigo">Direct Contact</span>
+                            <h2 class="contact-heading">Let's Connect & Collaborate!</h2>
+                            <p class="contact-subtext">Whether you'd like to discuss backend engineering, full-stack web applications, internship opportunities, or collaborations — feel free to reach out directly!</p>
+
+                            <div class="info-list">
+                                <!-- WhatsApp Contact Item with 100% Official Green Glass Badge -->
+                                <div class="info-item">
+                                    <div class="info-icon info-icon-wa">
+                                        <svg class="wa-svg-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.99c-.002 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                                    </div>
+                                    <div>
+                                        <span class="info-label">WhatsApp Direct</span>
+                                        <a href="https://wa.me/6281211749731" target="_blank" rel="noopener" class="info-value">0812-1174-9731</a>
+                                    </div>
+                                </div>
+
+                                <!-- Email Contact Item -->
+                                <div class="info-item">
+                                    <div class="info-icon info-icon-email">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                    </div>
+                                    <div>
+                                        <span class="info-label">Direct Email</span>
+                                        <a href="mailto:raflipraditta@gmail.com" class="info-value">raflipraditta@gmail.com</a>
+                                    </div>
+                                </div>
+
+                                <!-- Location Contact Item -->
+                                <div class="info-item">
+                                    <div class="info-icon info-icon-location">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                    </div>
+                                    <div>
+                                        <span class="info-label">Location</span>
+                                        <span class="info-value">Tangerang / South Tangerang, Indonesia</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="social-links">
+                                <!-- Real WhatsApp URL with 100% Official SVG Logo -->
+                                <a href="https://wa.me/6281211749731" target="_blank" rel="noopener" class="social-btn glass-btn wa-btn" aria-label="WhatsApp" title="Chat on WhatsApp (+62 812-1174-9731)">
+                                    <svg class="wa-svg-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.99c-.002 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                                </a>
+                                <!-- Real GitHub URL -->
+                                <a href="https://github.com/laviendra" target="_blank" rel="noopener" class="social-btn glass-btn" aria-label="GitHub">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                </a>
+                                <!-- Real LinkedIn URL -->
+                                <a href="https://www.linkedin.com/in/raflipraditta" target="_blank" rel="noopener" class="social-btn glass-btn" aria-label="LinkedIn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- SIMPLE CLEAN FORM -->
+                        <form id="contact-form" class="contact-form">
+                            <div class="form-group">
+                                <label for="contact-name">Full Name *</label>
+                                <input type="text" id="contact-name" name="name" placeholder="Enter your full name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contact-email">Email Address *</label>
+                                <input type="email" id="contact-email" name="email" placeholder="name@example.com" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contact-subject">Message Subject *</label>
+                                <input type="text" id="contact-subject" name="subject" placeholder="e.g. Backend Collaboration / Internship Discussion" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contact-message">Your Message *</label>
+                                <textarea id="contact-message" name="message" rows="4" placeholder="Write your message here..." required></textarea>
+                            </div>
+
+                            <div style="display:flex; flex-direction:column; gap:10px;">
+                                <button type="submit" id="contact-submit-btn" class="btn btn-solid-indigo btn-block">
+                                    <span>Send Message</span>
+                                </button>
+                                <button type="button" id="contact-wa-btn" class="btn btn-solid-emerald btn-block">
+                                    <svg class="wa-svg-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.99c-.002 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                                    <span>Chat on WhatsApp</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="#hero" class="brand-logo">
+                    <span class="logo-glass">RP</span>
+                    <span class="logo-text">rafli<span class="solid-indigo-text">.dev</span></span>
+                </a>
+            </div>
+
+            <div class="footer-links">
+                <a href="#hero">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#education">Education</a>
+                <a href="#contact">Contact</a>
+                <a href="CV_Rafli_Praditta.pdf" target="_blank" rel="noopener">Curriculum Vitae (PDF)</a>
+                <a href="https://wa.me/6281211749731" target="_blank" rel="noopener">WhatsApp</a>
+                <a href="https://github.com/laviendra" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://www.linkedin.com/in/raflipraditta" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+
+            <div class="footer-copy">
+                <p>&copy; 2026 Rafli Praditta — Information Systems Student at Universitas Pamulang (UNPAM)</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top glass-btn" aria-label="Back to Top">
+        ▲
+    </button>
+
+    <!-- Project Detail Dialog Modal -->
+    <dialog id="project-modal" class="project-modal glass-card">
+        <div class="modal-window-bar">
+            <span class="modal-window-title">Project Architecture & Details</span>
+            <button id="modal-close" class="modal-close-btn" aria-label="Close">&times;</button>
+        </div>
+        <div class="modal-content-wrapper">
+            <div id="modal-body">
+                <!-- Content generated dynamically via script.js -->
+            </div>
+        </div>
+    </dialog>
+
+    <!-- Toast Notification Element -->
+    <div id="toast-notification" class="toast-notification glass-card" role="status" aria-live="polite">
+        <span class="toast-icon">✨</span>
+        <span id="toast-message" class="toast-message">Message sent successfully!</span>
+    </div>
+
+    <!-- JavaScript Data and Core Scripts (Cache-busted) -->
+    <script src="projects-data.js?v=20260812_instant_131100_final"></script>
+    <script src="script.js?v=20260812_instant_131100_final"></script>
+</body>
+</html>
